@@ -1,0 +1,33 @@
+load("@rules_python//python:defs.bzl", "py_binary")
+load("@pip_deps//:requirements.bzl", "requirement")
+
+package(default_visibility = ["//visibility:public"])
+
+licenses(["notice"])
+
+exports_files(["aes_gcm_128_test_keyset.json"])
+
+py_binary(
+    name = "file_aead_cleartext",
+    srcs = ["file_aead_cleartext.py"],
+    python_version = "PY3",
+    deps = [
+        requirement("absl-py"),
+        "@tink_py//tink:tink_python",
+        "@tink_py//tink/core:cleartext_keyset_handle",
+    ],
+)
+
+sh_test(
+    name = "file_aead_test",
+    size = "small",
+    srcs = ["file_aead_test.sh"],
+    args = [
+        "$(rootpath :file_aead_cleartext)",
+        "$(rootpath :aes_gcm_128_test_keyset.json)",
+    ],
+    data = [
+        ":file_aead_cleartext",
+        ":aes_gcm_128_test_keyset.json",
+    ],
+)
