@@ -25,7 +25,7 @@ OUTPUT_FILE="$TEST_TMPDIR/output"
 TEMP_FILE="$TEST_TMPDIR/temp"
 ASSOCIATED_DATA="Example associated data"
 
-echo "This is some message to be encrypted." > $DATA_FILE
+echo "This is some message to be encrypted." > "$DATA_FILE"
 
 #############################################################################
 
@@ -68,7 +68,7 @@ fi
 #echo "+++ Starting test $test_name..."
 
 ###### Create a plaintext and incorrect MAC.
-#echo "ABCABCABCD" > $EXPECTED_MAC_FILE
+#echo "ABCABCABCD" > "$EXPECTED_MAC_FILE"
 
 ###### Run verification.
 #test_command $FILE_MAC_CLI $KEYSET_FILE $DATA_FILE $EXPECTED_MAC_FILE
@@ -87,7 +87,7 @@ fi
 #echo "+++ Starting test $test_name..."
 
 ###### Create a plaintext and non-hexadecimal MAC.
-#echo "SMDHTBFYGM" > $EXPECTED_MAC_FILE
+#echo "SMDHTBFYGM" > "$EXPECTED_MAC_FILE"
 
 ###### Run verification.
 #test_command $FILE_MAC_CLI $KEYSET_FILE $DATA_FILE $EXPECTED_MAC_FILE
@@ -109,7 +109,7 @@ fi
 #MAC_OUTPUT_FILE="$TEST_TMPDIR/computed_mac_log.txt"
 
 ###### Run computation.
-#$FILE_MAC_CLI $KEYSET_FILE $DATA_FILE --alsologtostderr 2> $MAC_OUTPUT_FILE
+#$FILE_MAC_CLI $KEYSET_FILE $DATA_FILE --alsologtostderr 2> "$MAC_OUTPUT_FILE"
 ###### Check that the correct MAC was produced in the logs
 #test_command grep --quiet --ignore-case "$CORRECT_MAC" "$MAC_OUTPUT_FILE"
 
@@ -128,7 +128,7 @@ fi
 
 ###### Create a plaintext and bad keyset.
 #BAD_KEY_FILE="$TEST_TMPDIR/bad_key.txt"
-#echo "not a key" > $BAD_KEY_FILE
+#echo "not a key" > "$BAD_KEY_FILE"
 
 ###### Run computation.
 #test_command $FILE_MAC_CLI $BAD_KEY_FILE $DATA_FILE
