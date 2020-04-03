@@ -1,5 +1,7 @@
-# Tink Python external example
+# Tink Python external example (unofficial)
 This is a small test project showing how to use Tink Python as an external developer, using Bazel. Hopefully Tink will be [usable through pip](https://github.com/google/tink/issues/248#issuecomment-606350083) soon as well.
+
+**This project is not an official Tink project and I might be wrong about how things work.**
 
 The WORKSPACE file is essentially copied from Tink's [`examples/python/WORKSPACE`](https://github.com/google/tink/blob/master/examples/python/WORKSPACE).
 The `BUILD.bazel`, `file_aead_cleartext.py`, and its test are heavily inspired by Tink's
