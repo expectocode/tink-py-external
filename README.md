@@ -1,5 +1,5 @@
 # Tink Python external example (unofficial)
-This is a small test project showing how to use Tink Python as an external developer, using Bazel. Hopefully Tink will be [usable through pip](https://github.com/google/tink/issues/248#issuecomment-606350083) soon as well.
+This is a small test project showing how to use Tink Python as an external developer, using Bazel. **Tink is now [usable through pip](https://github.com/google/tink/issues/248#issuecomment-606350083) as well, so using Bazel may not actually be what you want to do.**
 
 **This project is not an official Tink project and I might be wrong about how things work.**
 
